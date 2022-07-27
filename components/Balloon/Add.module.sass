@@ -1,0 +1,34 @@
+@use '_maps'
+
+
+.relative
+    position: relative
+.addbaloon
+    position: absolute
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+    border-radius: .5rem
+    display: flex
+    flex-direction: column
+    z-index: 1
+    
+    button
+        @extend .bg-blue-500
+        border: none
+        position: absolute
+        bottom: 0
+        right: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        transform: translateY(50%) translateX(50%)
+        width: min-content
+        border-radius:100%
+        padding: .7rem .7rem
+        color: white
+        cursor: pointer
+        z-index: 11
+        &:hover
+            @extend .bg-blue-700
+
+.pointernone
+    pointer-events: none

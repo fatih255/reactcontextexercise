@@ -1,0 +1,52 @@
+$default-theme-font: Helvetica,
+sans-serif;
+$palette: ("gray": ("50": "#F5F4F5",
+        "100": "#E9E7E8",
+        "200": "#D0CDCF",
+        "300": "#B0ABAD",
+        "400": "#847B80",
+        "500": "#201E1F",
+        "600": "#1A191A",
+        "700": "#1A191A",
+        "800": "#1A191A",
+        "900": "#000000"),
+    "blue":("50": "#F5F7FF",
+        "100": "#E6EBFE",
+        "200": "#CDD6FE",
+        "300": "#ABBAFD",
+        "400": "#8399FB",
+        "500": "#4D6CFA",
+        "600": "#395CF9",
+        "700": "#2048F9",
+        "800": "#0730E9",
+        "900": "#0523A9"
+    ));
+$forUse: ("bg":"background-color",
+    "text":"color",
+    "outline":"outline",
+    "border":"border"
+);
+
+/* 
+ bg-gray-500 
+ bg-blue-500 
+ text-blue-500
+ */
+@each $paletteName,
+$paletteValues in $palette {
+
+    @each $colorName,
+    $colorCode in $paletteValues {
+
+        @each $forUseName,
+        $forUseValue in $forUse {
+            .#{$forUseName}-#{$paletteName}-#{$colorName} {
+                @if $forUseValue!='outline' and $forUseValue!='border' {
+                       #{$forUseValue}: #{$colorCode};
+                }
+                @else {
+                      #{$forUseValue}: 1px solid #{$colorCode};
+                }
+            }
+        }
+    }}
